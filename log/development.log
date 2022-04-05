@@ -1273,3 +1273,148 @@ Processing by ProductsController#index as HTML
 Completed 200 OK in 29ms (Views: 23.8ms | ActiveRecord: 1.5ms | Allocations: 4145)
 
 
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8512873719464734410)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (13.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (13.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8512873719464734410)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-04-01 16:08:04 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 27.6ms | Allocations: 317)
+  Rendered layout layouts/application.html.erb (Duration: 326.0ms | Allocations: 22461)
+Completed 200 OK in 450ms (Views: 363.2ms | ActiveRecord: 0.0ms | Allocations: 25666)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2022-04-01 16:08:10 -0300
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (15.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:6
+  Rendered restaurants/_restaurant.html.erb (Duration: 3.1ms | Allocations: 240)
+  Rendered restaurants/_restaurant.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 67.7ms | Allocations: 5378)
+  Rendered layout layouts/application.html.erb (Duration: 80.0ms | Allocations: 6573)
+Completed 200 OK in 107ms (Views: 65.9ms | ActiveRecord: 21.6ms | Allocations: 8978)
+
+
+Started GET "/restaurants/new" for 127.0.0.1 at 2022-04-01 16:08:14 -0300
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 210.5ms | Allocations: 3539)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 221.3ms | Allocations: 3857)
+  Rendered layout layouts/application.html.erb (Duration: 241.2ms | Allocations: 4986)
+Completed 200 OK in 249ms (Views: 245.1ms | ActiveRecord: 0.0ms | Allocations: 5445)
+
+
+Started POST "/restaurants" for 127.0.0.1 at 2022-04-01 16:08:22 -0300
+Processing by RestaurantsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"name"=>"r3", "address"=>"rua 3"}, "commit"=>"Create Restaurant"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/restaurants_controller.rb:27:in `block in create'
+  [1m[36mRestaurant Create (12.0ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "r3"], ["address", "rua 3"], ["created_at", "2022-04-01 19:08:22.986742"], ["updated_at", "2022-04-01 19:08:22.986742"]]
+  ↳ app/controllers/restaurants_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (13.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/restaurants_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/restaurants/3
+Completed 302 Found in 41ms (ActiveRecord: 25.7ms | Allocations: 4007)
+
+
+Started GET "/restaurants/3" for 127.0.0.1 at 2022-04-01 16:08:23 -0300
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (1.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:63:in `set_restaurant'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/_restaurant.html.erb (Duration: 0.6ms | Allocations: 33)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 11.5ms | Allocations: 826)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 1923)
+Completed 200 OK in 64ms (Views: 26.6ms | ActiveRecord: 1.9ms | Allocations: 5020)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-04 20:37:29 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (12.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 16.3ms | Allocations: 317)
+  Rendered layout layouts/application.html.erb (Duration: 339.5ms | Allocations: 22351)
+Completed 200 OK in 537ms (Views: 386.8ms | ActiveRecord: 0.0ms | Allocations: 25553)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2022-04-04 20:37:40 -0300
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (14.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:16
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 127.4ms | Allocations: 12609)
+  Rendered layout layouts/application.html.erb (Duration: 128.9ms | Allocations: 12716)
+Completed 500 Internal Server Error in 175ms (ActiveRecord: 44.5ms | Allocations: 15101)
+
+
+  
+ActionView::Template::Error (undefined method `total_products' for #<Restaurant id: 1, name: "Restaurante 1", address: "Rua r", created_at: "2022-03-31 19:46:32.121821000 +0000", updated_at: "2022-03-31 19:46:32.121821000 +0000">
+Did you mean?  total_of_products):
+    17:       <tr>
+    18:         <td><%= restaurant.name %></td>
+    19:         <td><%= restaurant.address %></td>
+    20:         <td><%= restaurant.total_products %></td>
+    21:         <td><%= link_to 'Show', restaurant %></td>
+    22:         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+    23:         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/restaurants/index.html.erb:20
+app/views/restaurants/index.html.erb:16
+Started GET "/restaurants" for 127.0.0.1 at 2022-04-04 20:38:31 -0300
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:16
+Started GET "/restaurants" for 127.0.0.1 at 2022-04-04 20:38:34 -0300
+  [1m[36mProduct Count (23.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/models/restaurant.rb:5:in `total_products'
+  [1m[36mProduct Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/models/restaurant.rb:5:in `total_products'
+  [1m[36mProduct Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  ↳ app/models/restaurant.rb:5:in `total_products'
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 218.0ms | Allocations: 12814)
+  Rendered layout layouts/application.html.erb (Duration: 230.7ms | Allocations: 14037)
+Completed 200 OK in 282ms (Views: 199.6ms | ActiveRecord: 33.1ms | Allocations: 15603)
+
+
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:16
+  [1m[36mProduct Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/models/restaurant.rb:5:in `total_products'
+  [1m[36mProduct Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/models/restaurant.rb:5:in `total_products'
+  [1m[36mProduct Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" WHERE "products"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  ↳ app/models/restaurant.rb:5:in `total_products'
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 31.1ms | Allocations: 7086)
+  Rendered layout layouts/application.html.erb (Duration: 36.5ms | Allocations: 8290)
+Completed 200 OK in 45ms (Views: 30.4ms | ActiveRecord: 8.4ms | Allocations: 9764)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2022-04-04 20:38:48 -0300
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:63:in `set_restaurant'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/_restaurant.html.erb (Duration: 6.6ms | Allocations: 220)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 75.3ms | Allocations: 1308)
+  Rendered layout layouts/application.html.erb (Duration: 83.1ms | Allocations: 2414)
+Completed 200 OK in 104ms (Views: 84.8ms | ActiveRecord: 0.9ms | Allocations: 4475)
+
+

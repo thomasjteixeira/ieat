@@ -1,24 +1,11 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### API REST em Ruby on Rails de pedidos de Restaurante (*em construção*)
 
-Things you may want to cover:
 
-* Ruby version
+- Banco de dados: **PostgreSQL**
+- Autenticação e Autorização: **Devise**
+- Testes: **RSpec**, **Shoulda Matchers**, **Factory Bot**, **Faker**
+- Jobs: **Redis**, **Sidekiq**
+- **Docker**
+- Deploy no **Heroku**
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
