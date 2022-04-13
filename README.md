@@ -1,5 +1,5 @@
 
-#### API REST em Ruby on Rails de pedidos de Restaurante (*em construção*)
+### API REST em Ruby on Rails de pedidos de Restaurante (*em construção*)
 
 
 - Banco de dados: **PostgreSQL**

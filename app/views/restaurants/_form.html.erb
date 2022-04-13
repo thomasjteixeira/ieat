@@ -22,6 +22,11 @@
   </div>
 
   <div>
+    <%= form.label :user, style: "display: block" %>
+    <%= form.collection_select(:user_id, User.restaurant, :id, :email, include_blank: true) %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
